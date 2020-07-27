@@ -30,7 +30,7 @@ class App extends Component {
         <Cards data={this.state.data1}/>
         <Country handleStateChange={this.handleStateChange}/>
         <Chart mystate={this.state.mystate}/>
-        <a href="https://github.com/parvd">
+        <a href="https://github.com/parvd/covid-dashboard">
         <img src={chain} alt="Link" />
         </a>
       </div>
