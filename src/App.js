@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {fetchDataIN} from './api/index';
+import {fetchDataIN,newtesting,fetchStateName} from './api/index';
 import {Cards,Chart,Country} from './component/index';
 import {Typography} from '@material-ui/core';
 import styles from './App.module.css';
@@ -13,6 +13,8 @@ class App extends Component {
 
   async componentDidMount(){
     const dataIn = await fetchDataIN();
+   // const newapi = await fetchStateName();
+   // console.log(newapi);
     this.setState({
       data1:dataIn,
     })
