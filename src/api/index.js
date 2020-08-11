@@ -3,7 +3,7 @@ const url='https://api.rootnet.in/covid19-in/unofficial/covid19india.org/statewi
 const urlIN='https://covid19.mathdro.id/api/countries/INDIA'
 const urldaily='https://api.rootnet.in/covid19-in/stats/history';
 const urlState='https://api.rootnet.in/covid19-in/unofficial/covid19india.org/statewise';
-const statedaily='https://api.covid19india.org/v4/timeseries.json';
+const statedaily='https://api.rootnet.in/covid19-in/unofficial/covid19india.org/statewise/history';
 
 
 export const fetchDataIN = async() =>{
@@ -78,20 +78,11 @@ export const fetchStateData = async()=>{
 
 export const testing = async()=>{
     try{
-        const {data} = await axios.get(urldaily);
+        const {data} = await axios.get(statedaily);
         const pd =data.data
-        const modifiedData = pd.map((dataItem)=>({
-            date:dataItem.day,
-            reg:dataItem.regional.map((itr)=>({
-                st:itr.loc,
-                confirmed:itr.totalConfirmed,
-                recovered:itr.discharged,
-                deaths:itr.deaths,
-                active:itr.totalConfirmed-itr.discharged-itr.deaths
-            }))
-            }));
-        //console.log(modifiedData);
-        return modifiedData;
+       
+        console.log(pd);
+        return pd;
     }
     catch(error){
     console.log(error)
